@@ -20,13 +20,9 @@ $ python3 emotet_config.py your_data_dump.dmp
 
 ## Author
 
-* **Colin Hardy** - [@cybercdh](https://twitter.com/cybercdh)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+**Colin Hardy** - [@cybercdh](https://twitter.com/cybercdh)
 
 ## Acknowledgments
 
-* A freaking excellent blog on Emotet was written by [Fortinet](https://www.fortinet.com/blog/threat-research/deep-dive-into-emotet-malware.html) where they describe the config structure.
+A freaking excellent blog on Emotet was written by [Fortinet](https://www.fortinet.com/blog/threat-research/deep-dive-into-emotet-malware.html) where they describe the config structure.
 
