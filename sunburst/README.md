@@ -1,12 +1,11 @@
-# README 
-
 ## Suggested Usage
 
-pipe the output of some other tool or file, e.g.
+Pipe the output of some other tool or file, e.g.
 
 ```cat processes.txt | go run main.go```
 
 or you can feed it a single process name on the command line:
+
 ```go run main.go someprocess```
 
 ## Example Output
@@ -24,3 +23,10 @@ Note: output will be green if there is a match in the hardcoded process list.
 13544031715334011032 : groundling64.sys
 ```
 
+## Notes
+
+You need to ensure you have `hardcoded_hashes.txt` in the same dir as this code. This code was written without care for production quality or error checking.
+
+Thanks!
+
+@cybercdh
