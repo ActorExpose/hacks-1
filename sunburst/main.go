@@ -24,6 +24,9 @@ import (
 
 func main(){
 	
+	var onlymatches bool
+	flag.BoolVar(&onlymatches, "m", false, "only show matches from known hardcoded hashes")
+
 	flag.Parse()
 	
 	// accept input piped to program, or from an arg
@@ -58,7 +61,10 @@ func main(){
 		if contains(lines, currentHashStr) {
 			color.Green.Printf("%s : %s\n", currentHashStr, lower_process)
 		} else {
-			fmt.Printf("%s : %s\n", currentHashStr, lower_process)
+			if !onlymatches {
+				fmt.Printf("%s : %s\n", currentHashStr, lower_process)	
+			}
+			
 		}
 
 		// add to seen

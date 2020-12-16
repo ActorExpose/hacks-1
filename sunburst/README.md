@@ -8,6 +8,10 @@ or you can feed it a single process name on the command line:
 
 ```go run main.go someprocess```
 
+You can also just output matches using the the ```-m``` flag:
+
+``` cat processes.txt | go run main.go -m```
+
 ## Example Output
 
 Note: output will be green if there is a match in the hardcoded process list.
@@ -24,6 +28,10 @@ Note: output will be green if there is a match in the hardcoded process list.
 ```
 
 ## Notes
+
+Depends on the gookit/color package. Install first using:
+
+```go get "github.com/gookit/color"```
 
 You need to ensure you have `hardcoded_hashes.txt` in the same dir as this code. This code was written without care for production quality or error checking.
 
