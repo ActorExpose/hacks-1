@@ -41,19 +41,14 @@ func main(){
 
 	sc := bufio.NewScanner(processes)
 
-	// keep track of processes we've seen
-	seen := make(map[string]bool)
-
 	lines, err := readLines("hardcoded_hashes.txt")
 	if err != nil {
 	    log.Fatalf("readLines: %s", err)
 	}
 	for sc.Scan() {
-		// convert to lower and check not seen
+		// convert to lower 
 		lower_process := strings.ToLower(sc.Text())
-		if _, ok := seen[lower_process]; ok {
-			continue
-		}
+
 		// get hash and print
 		currentHash := GetHash(lower_process)
 		currentHashStr := strconv.FormatUint(currentHash, 10)
@@ -62,15 +57,10 @@ func main(){
 			color.Green.Printf("%s : %s\n", currentHashStr, lower_process)
 		} else {
 			if !onlymatches {
-				fmt.Printf("%s : %s\n", currentHashStr, lower_process)	
-			}
-			
+				fmt.Printf("%s : %s\n", currentHashStr, lower_process)				
 		}
-
-		// add to seen
-		seen[lower_process] = true
 	}
-
+ }
 }
 
 // replicate the .net hash function
