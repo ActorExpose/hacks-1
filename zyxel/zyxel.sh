@@ -2,9 +2,6 @@
 PKEXTRACT=/usr/local/Cellar/pkcrack/1.2.2/bin/extract
 
 FWNAME=$1
-
-echo "Provided update name: $FWNAME"
-
 TEMP_ZIP=$FWNAME_temp.zip
 
 zip -9 $TEMP_ZIP $FWNAME.conf
