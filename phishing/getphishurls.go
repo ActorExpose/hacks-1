@@ -4,6 +4,7 @@ import (
   "bytes"
   "bufio"
   "encoding/json"
+  "encoding/csv"
   "net/http"
   "os"
   "sync"
@@ -21,6 +22,8 @@ func main() {
   fetchFns := []fetchFn{
     getPhishTankURLs,
     getOpenPhishURLs,
+    getNewLinksToday,
+    getPhishStatsInfo,
   } 
   
   purls := make(chan PhishUrls)
@@ -66,7 +69,6 @@ func getOpenPhishURLs() ([]PhishUrls, error) {
   out := make([]PhishUrls, 0)
 
   for sc.Scan() {   
-
     out = append(out, PhishUrls{URL: sc.Text()})
   }
   return out, nil
@@ -98,6 +100,45 @@ func getPhishTankURLs() ([]PhishUrls, error) {
   return urls, nil
 }
 
+func getNewLinksToday() ([]PhishUrls, error) {
+  pturl := "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-links-NEW-today.txt"
 
+  res, err := http.Get(pturl)
+  if err != nil {
+    return []PhishUrls{}, err
+  }
 
+  defer res.Body.Close()
+  sc := bufio.NewScanner(res.Body)
 
+  out := make([]PhishUrls, 0)
+
+  for sc.Scan() {   
+    out = append(out, PhishUrls{URL: sc.Text()})
+  }
+  return out, nil
+}
+
+func getPhishStatsInfo() ([]PhishUrls, error) {
+  pturl := "https://phishstats.info/phish_score.csv"
+  out := make([]PhishUrls, 0)
+  
+  res, err := http.Get(pturl)
+  if err != nil {
+    return []PhishUrls{}, err
+  }
+
+  defer res.Body.Close()
+  reader := csv.NewReader(res.Body)
+  reader.Comma = ','
+  reader.Comment = '#'
+  data, err := reader.ReadAll()
+  if err != nil {
+    return []PhishUrls{}, err
+  }
+
+  for _, row := range data {
+    out = append(out, PhishUrls{URL: row[2]})
+  }
+  return out, nil
+}
