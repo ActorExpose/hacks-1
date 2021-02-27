@@ -34,3 +34,7 @@ Reads recent Phishing URL data from the following sources
 ## Pull Requests
 
 Please submit a PR if you have additional sources
+
+## Credits
+
+Many of the coding constructs were lifted from https://github.com/tomnomnom/waybackurls
