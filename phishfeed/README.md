@@ -9,7 +9,6 @@ Gets a list of Phishing URLs from disparate sources and outputs to stdout
 ```
 
 ## Usage
-
 ```
 ▶ phishfeed
 
@@ -29,7 +28,6 @@ Reads recent Phishing URL data from the following sources
 * http://data.phishtank.com/data/online-valid.json
 * https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-links-NEW-today.txt
 * https://phishstats.info/phish_score.csv
-
 
 ## Pull Requests
 
