@@ -16,7 +16,6 @@ def decode(P1):
 	# initialise counters etc
 	myArray = [0] * len(P1)
 	num2 = len(P1) - 1 
-	num4 = 0
 
 	# loop over each byte and XOR with two keys
 	# num is the hardcoded last byte of P1 XOR with 112
