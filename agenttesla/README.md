@@ -1,6 +1,6 @@
 # Agent Tesla Resource Parser / Decoder
 
-Agent Tesla malware hides an embedded DLL file in an encrypted Resource disguised as a PNG. Using dnSpy it's possible to identify the image parsing routine and the decryption algorithm. This is my attempt at implementing these routines in Python for the purpose of dumping the Agent Tesla payload.
+Agent Tesla malware hides an embedded DLL file in an encrypted Resource disguised as a PNG. Using [dnSpy](https://github.com/dnSpy/dnSpy) it's possible to identify the image parsing routine and the decryption algorithm. This is my attempt at implementing these routines in Python for the purpose of dumping the Agent Tesla payload.
 
 ***[1st June 2021]*** - At present, the code appears to work, but not entirely. See details below.
 
